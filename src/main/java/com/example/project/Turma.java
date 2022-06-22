@@ -1,20 +1,39 @@
 package com.example.project;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
 public class Turma {
+    List<Double> notas = new ArrayList<>();
+    
     
     public void addNota(double nota) {
-        return;
+        notas.add(nota);
     }
 
     public int getQuantidadeNotas() {
-        return 0;
+        return notas.size();
     }
 
     public double getMediaDasNotas() {
-        return 0.0;
+        Double total = 0.0;
+        
+        for (Double nota : notas) {
+            total += nota;
+        }
+        return total / notas.size();
     }
 
     public int getQuantidadeNotasMeioresQueAMedia() {
-        return 0;
+        Double media = this.getMediaDasNotas();
+        int count = 0;
+        for (Double nota : notas) {
+            if(nota < media){
+                count++;
+            }
+        }
+        
+        return count;
     }
 }
